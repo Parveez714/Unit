@@ -3,6 +3,8 @@ import os
 from typing import List, Optional
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, EmailStr
 import requests
 from dotenv import load_dotenv
@@ -243,5 +245,22 @@ def create_lead(lead: LeadCreate):
             status_code=503,
             detail="Salesforce integration is not configured. Please set SF_CLIENT_ID and SF_CLIENT_SECRET."
         )
+
+
+# Serve React built files
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIST_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "frontend", "dist"))
+
+if os.path.exists(FRONTEND_DIST_DIR):
+    assets_dir = os.path.join(FRONTEND_DIST_DIR, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+    @app.get("/{catchall:path}")
+    def serve_frontend(catchall: str):
+        file_path = os.path.join(FRONTEND_DIST_DIR, catchall)
+        if os.path.exists(file_path) and os.path.isfile(file_path):
+            return FileResponse(file_path)
+        return FileResponse(os.path.join(FRONTEND_DIST_DIR, "index.html"))
 
 
