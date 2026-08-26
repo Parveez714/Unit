@@ -221,7 +221,6 @@ function App() {
               <ErrorState message={error} onRetry={() => loadDashboardData(email)} />
             ) : referrals.length === 0 ? (
               <EmptyState 
-                onChangeEmail={handleSignOut} 
                 isFilterActive={
                   search !== '' || 
                   selectedProject !== 'All Projects' || 

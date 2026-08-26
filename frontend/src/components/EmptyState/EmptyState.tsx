@@ -1,14 +1,12 @@
 import React from 'react';
-import { ClipboardX, Mail, RotateCcw } from 'lucide-react';
+import { ClipboardX, RotateCcw } from 'lucide-react';
 
 interface EmptyStateProps {
-  onChangeEmail: () => void;
   isFilterActive?: boolean;
   onClearFilters?: () => void;
 }
 
 export const EmptyState: React.FC<EmptyStateProps> = ({ 
-  onChangeEmail, 
   isFilterActive, 
   onClearFilters 
 }) => {
