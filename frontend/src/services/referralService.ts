@@ -1,7 +1,7 @@
 import type { Referral, LeadData } from '../types/referral';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (
-  window.location.port === '5173' || window.location.port === '5174'
+  import.meta.env.DEV
     ? `http://${window.location.hostname}:8000/api`
     : `${window.location.origin}/api`
 );

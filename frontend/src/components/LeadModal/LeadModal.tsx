@@ -322,17 +322,17 @@ export const LeadModal: React.FC<LeadModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300">
-      <div className="w-full max-w-2xl bg-white dark:bg-zinc-900 rounded-xl shadow-2xl border border-borders dark:border-zinc-800 overflow-hidden transform transition-all duration-300 scale-100 flex flex-col max-h-[90vh]">
-        
+      <div className="w-full max-w-2xl bg-white dark:bg-ink-900 rounded-xl shadow-2xl border border-borders dark:border-ink-800 overflow-hidden transform transition-all duration-300 scale-100 flex flex-col max-h-[90vh]">
+
         {/* Header */}
-        <div className="flex justify-between items-center px-6 py-4 border-b border-borders dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/50">
-          <h3 className="text-base font-bold text-mainText dark:text-zinc-100 flex items-center gap-2">
-            <Award size={18} className="text-[#0066CC]" />
+        <div className="flex justify-between items-center px-6 py-4 border-b border-borders dark:border-ink-800 bg-shell dark:bg-ink-950/50">
+          <h3 className="text-base font-display font-bold text-mainText dark:text-zinc-100 flex items-center gap-2">
+            <Award size={18} className="text-ink-950 dark:text-white" />
             Create New Referral Lead
           </h3>
           <button
             onClick={onClose}
-            className="p-1 rounded-full text-metadata hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-mainText dark:hover:text-zinc-100 transition-colors cursor-pointer"
+            className="p-1 rounded-full text-metadata hover:bg-shell-muted dark:hover:bg-ink-800 hover:text-mainText dark:hover:text-zinc-100 transition-colors cursor-pointer"
           >
             <X size={18} />
           </button>
@@ -340,18 +340,18 @@ export const LeadModal: React.FC<LeadModalProps> = ({
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-6 overflow-y-auto space-y-6 flex-1">
-          
+
           {/* Smart Input Helpers */}
-          <div className="p-4 bg-zinc-50 dark:bg-zinc-950/40 rounded-lg border border-borders dark:border-zinc-850 space-y-3">
+          <div className="p-4 bg-shell dark:bg-ink-950/40 rounded-lg border border-borders dark:border-ink-800 space-y-3">
             <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-bold text-mainText dark:text-zinc-350">
+              <span className="text-xs font-bold text-mainText dark:text-ink-200">
                 Quick Fill Helpers
               </span>
               {isContactPickerSupported && (
                 <button
                   type="button"
                   onClick={handleImportContacts}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-[#0066CC] hover:bg-[#0052a3] text-white text-xs font-semibold rounded-lg shadow-sm transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-br from-ink-700 to-ink-950 hover:from-ink-600 hover:to-black dark:bg-white dark:bg-none dark:text-ink-950 text-white text-xs font-semibold rounded-lg shadow-sm transition-colors cursor-pointer"
                 >
                   <User size={13} />
                   Import from Phone Contacts
@@ -368,10 +368,10 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                 placeholder="Paste email signature, message, or contact card here to auto-fill details..."
                 value={magicPasteText}
                 onChange={handleMagicPasteChange}
-                className="w-full px-3 py-2 rounded-lg border border-borders dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 text-xs focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 resize-none placeholder:text-metadata"
+                className="w-full px-3 py-2 rounded-lg border border-borders dark:border-ink-800 bg-white dark:bg-ink-950 text-zinc-900 dark:text-zinc-100 text-xs focus:outline-none focus:ring-2 focus:ring-ink-900/10 dark:focus:ring-white/10 resize-none placeholder:text-metadata"
               />
               {magicPasteSuccess && (
-                <p className="text-[10px] text-green-600 dark:text-green-400 font-semibold flex items-center gap-1">
+                <p className="text-[10px] text-mainText dark:text-white font-bold flex items-center gap-1">
                   ✓ Successfully extracted details!
                 </p>
               )}
@@ -380,7 +380,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
 
           {/* Referral Details */}
           <div className="space-y-4 pt-1">
-            <h4 className="text-xs font-bold text-[#0066CC] dark:text-[#3399FF] uppercase tracking-wider border-b border-borders dark:border-zinc-800 pb-1.5">
+            <h4 className="text-xs font-bold text-ink-950 dark:text-white uppercase tracking-wider border-b border-borders dark:border-ink-800 pb-1.5">
               Referral Details
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -392,7 +392,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                 <select
                   value={formData.salutation}
                   onChange={(e) => handleInputChange('salutation', e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-borders dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20"
+                  className="w-full px-3 py-2 rounded-lg border border-borders dark:border-ink-800 bg-white dark:bg-ink-950 text-zinc-900 dark:text-zinc-100 text-sm focus:outline-none focus:ring-2 focus:ring-ink-900/10 dark:focus:ring-white/10"
                 >
                   {SALUTATIONS.map((sal) => (
                     <option key={sal} value={sal}>{sal}</option>
@@ -415,12 +415,12 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     className={`w-full pl-9 pr-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
                       errors.name
-                        ? 'border-red-300 bg-red-50 focus:ring-red-200 dark:bg-red-950/10'
-                        : 'border-borders dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-[#0066CC]/20 focus:border-[#0066CC]'
+                        ? 'border-ink-950 dark:border-white bg-ink-50 dark:bg-ink-950 focus:ring-ink-900/10 dark:focus:ring-white/10'
+                        : 'border-borders dark:border-ink-800 bg-white dark:bg-ink-950 text-zinc-900 dark:text-zinc-100 focus:ring-ink-900/10 dark:focus:ring-white/10 focus:border-ink-500'
                     }`}
                   />
                 </div>
-                {errors.name && <p className="text-[11px] text-red-500 font-medium">{errors.name}</p>}
+                {errors.name && <p className="text-[11px] text-mainText dark:text-white font-bold">{errors.name}</p>}
               </div>
 
               <div className="space-y-1">
@@ -432,7 +432,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                   placeholder="e.g. +91"
                   value={formData.countryCode}
                   onChange={(e) => handleInputChange('countryCode', e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-borders dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 text-sm focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20"
+                  className="w-full px-3 py-2 rounded-lg border border-borders dark:border-ink-800 bg-white dark:bg-ink-950 text-zinc-900 dark:text-zinc-100 text-sm focus:outline-none focus:ring-2 focus:ring-ink-900/10 dark:focus:ring-white/10"
                 />
               </div>
 
@@ -451,12 +451,12 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                     onChange={(e) => handleInputChange('mobile', e.target.value)}
                     className={`w-full pl-9 pr-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
                       errors.mobile
-                        ? 'border-red-300 bg-red-50 focus:ring-red-200 dark:bg-red-950/10'
-                        : 'border-borders dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-[#0066CC]/20 focus:border-[#0066CC]'
+                        ? 'border-ink-950 dark:border-white bg-ink-50 dark:bg-ink-950 focus:ring-ink-900/10 dark:focus:ring-white/10'
+                        : 'border-borders dark:border-ink-800 bg-white dark:bg-ink-950 text-zinc-900 dark:text-zinc-100 focus:ring-ink-900/10 dark:focus:ring-white/10 focus:border-ink-500'
                     }`}
                   />
                 </div>
-                {errors.mobile && <p className="text-[11px] text-red-500 font-medium">{errors.mobile}</p>}
+                {errors.mobile && <p className="text-[11px] text-mainText dark:text-white font-bold">{errors.mobile}</p>}
               </div>
 
               <div className="space-y-1">
@@ -474,12 +474,12 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     className={`w-full pl-9 pr-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 ${
                       errors.email
-                        ? 'border-red-300 bg-red-50 focus:ring-red-200 dark:bg-red-950/10'
-                        : 'border-borders dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-[#0066CC]/20 focus:border-[#0066CC]'
+                        ? 'border-ink-950 dark:border-white bg-ink-50 dark:bg-ink-950 focus:ring-ink-900/10 dark:focus:ring-white/10'
+                        : 'border-borders dark:border-ink-800 bg-white dark:bg-ink-950 text-zinc-900 dark:text-zinc-100 focus:ring-ink-900/10 dark:focus:ring-white/10 focus:border-ink-500'
                     }`}
                   />
                 </div>
-                {errors.email && <p className="text-[11px] text-red-500 font-medium">{errors.email}</p>}
+                {errors.email && <p className="text-[11px] text-mainText dark:text-white font-bold">{errors.email}</p>}
               </div>
 
               <div className="space-y-1">
@@ -493,7 +493,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({
                   <select
                     value={formData.projectInterested}
                     onChange={(e) => handleInputChange('projectInterested', e.target.value)}
-                    className="w-full pl-9 pr-3 py-2 bg-white dark:bg-zinc-950 border border-borders dark:border-zinc-800 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 cursor-pointer text-zinc-900 dark:text-zinc-100"
+                    className="w-full pl-9 pr-3 py-2 bg-white dark:bg-ink-950 border border-borders dark:border-ink-800 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ink-900/10 dark:focus:ring-white/10 cursor-pointer text-zinc-900 dark:text-zinc-100"
                   >
                     {PROJECTS.map((proj) => (
                       <option key={proj} value={proj}>{proj}</option>
@@ -505,18 +505,18 @@ export const LeadModal: React.FC<LeadModalProps> = ({
           </div>
 
           {/* Form Actions */}
-          <div className="flex justify-end gap-3 pt-4 border-t border-borders dark:border-zinc-800">
+          <div className="flex justify-end gap-3 pt-4 border-t border-borders dark:border-ink-800">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-xs md:text-sm font-medium border border-borders dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+              className="px-4 py-2 text-xs md:text-sm font-medium border border-borders dark:border-ink-800 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-shell dark:hover:bg-ink-800 transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-5 py-2 text-xs md:text-sm font-medium text-white dark:text-zinc-900 bg-[#0066CC] dark:bg-zinc-100 hover:bg-[#0052a3] dark:hover:bg-zinc-200 rounded-lg transition-all shadow-sm cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-5 py-2 text-xs md:text-sm font-medium text-white dark:text-ink-950 bg-gradient-to-br from-ink-700 to-ink-950 dark:bg-white dark:bg-none hover:from-ink-600 hover:to-black dark:hover:bg-ink-100 rounded-lg transition-all shadow-sm cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Creating...' : 'Submit Lead'}
             </button>

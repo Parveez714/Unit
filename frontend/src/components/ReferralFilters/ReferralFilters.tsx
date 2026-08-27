@@ -45,9 +45,9 @@ export const ReferralFilters: React.FC<ReferralFiltersProps> = ({
     selectedOpportunityStatus !== 'All Opportunity Stages';
 
   return (
-    <div className="bg-white dark:bg-zinc-900 rounded-xl border border-borders dark:border-zinc-800 p-4 md:p-6 mb-6 shadow-sm">
+    <div className="bg-shell dark:bg-ink-900 rounded-xl border border-borders dark:border-ink-800 p-4 md:p-6 mb-6 shadow-sm">
       <div className="flex flex-col xl:flex-row gap-4 items-stretch xl:items-center justify-between">
-        
+
         {/* Search */}
         <div className="flex-1 relative">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-metadata pointer-events-none">
@@ -58,19 +58,19 @@ export const ReferralFilters: React.FC<ReferralFiltersProps> = ({
             placeholder="Search referrals by name..."
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-borders dark:border-zinc-800 rounded-lg text-sm bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:bg-white focus:dark:bg-zinc-950 focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 focus:border-[#0066CC] transition-all"
+            className="w-full pl-10 pr-4 py-2 border border-borders dark:border-ink-800 rounded-lg text-sm bg-white dark:bg-ink-950 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-ink-900/10 dark:focus:ring-white/10 focus:border-ink-500 transition-all"
           />
         </div>
 
         {/* Filters */}
         <div className="flex flex-wrap sm:flex-nowrap gap-3 items-center">
-          
+
           {/* Project Filter */}
           <div className="w-full sm:w-auto relative">
             <select
               value={selectedProject}
               onChange={(e) => onProjectChange(e.target.value)}
-              className="w-full sm:w-44 px-3 py-2 bg-zinc-50 dark:bg-zinc-950 border border-borders dark:border-zinc-800 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 focus:border-[#0066CC] cursor-pointer appearance-none pr-8 text-zinc-900 dark:text-zinc-100"
+              className="w-full sm:w-44 px-3 py-2 bg-white dark:bg-ink-950 border border-borders dark:border-ink-800 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-ink-900/10 dark:focus:ring-white/10 focus:border-ink-500 cursor-pointer appearance-none pr-8 text-zinc-900 dark:text-zinc-100"
             >
               <option value="All Projects">All Projects</option>
               {projectsList.map((p) => (
@@ -89,7 +89,7 @@ export const ReferralFilters: React.FC<ReferralFiltersProps> = ({
             <select
               value={selectedLeadStatus}
               onChange={(e) => onLeadStatusChange(e.target.value)}
-              className="w-full sm:w-44 px-3 py-2 bg-zinc-50 dark:bg-zinc-950 border border-borders dark:border-zinc-800 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 focus:border-[#0066CC] cursor-pointer appearance-none pr-8 text-zinc-900 dark:text-zinc-100"
+              className="w-full sm:w-44 px-3 py-2 bg-white dark:bg-ink-950 border border-borders dark:border-ink-800 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-ink-900/10 dark:focus:ring-white/10 focus:border-ink-500 cursor-pointer appearance-none pr-8 text-zinc-900 dark:text-zinc-100"
             >
               {leadStatuses.map((s) => (
                 <option key={s} value={s}>
@@ -107,7 +107,7 @@ export const ReferralFilters: React.FC<ReferralFiltersProps> = ({
             <select
               value={selectedOpportunityStatus}
               onChange={(e) => onOpportunityStatusChange(e.target.value)}
-              className="w-full sm:w-48 px-3 py-2 bg-zinc-50 dark:bg-zinc-950 border border-borders dark:border-zinc-800 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0066CC]/20 focus:border-[#0066CC] cursor-pointer appearance-none pr-8 text-zinc-900 dark:text-zinc-100"
+              className="w-full sm:w-48 px-3 py-2 bg-white dark:bg-ink-950 border border-borders dark:border-ink-800 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-ink-900/10 dark:focus:ring-white/10 focus:border-ink-500 cursor-pointer appearance-none pr-8 text-zinc-900 dark:text-zinc-100"
             >
               {opportunityStatuses.map((s) => (
                 <option key={s} value={s}>
@@ -123,7 +123,7 @@ export const ReferralFilters: React.FC<ReferralFiltersProps> = ({
           {hasActiveFilters && (
             <button
               onClick={onClearFilters}
-              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 border border-borders dark:border-zinc-700 text-xs font-semibold rounded-lg bg-zinc-50 dark:bg-zinc-800 text-descText dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 hover:text-mainText dark:hover:text-zinc-100 transition-all cursor-pointer shadow-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 border border-borders dark:border-ink-700 text-xs font-semibold rounded-lg bg-white dark:bg-ink-800 text-descText dark:text-zinc-300 hover:bg-shell-muted dark:hover:bg-ink-700 hover:text-mainText dark:hover:text-zinc-100 transition-all cursor-pointer shadow-sm"
             >
               <RotateCcw size={13} />
               Clear

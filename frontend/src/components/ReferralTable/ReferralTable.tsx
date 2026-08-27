@@ -11,10 +11,10 @@ export const ReferralTable: React.FC<ReferralTableProps> = ({ referrals }) => {
   return (
     <div className="w-full">
       {/* Desktop Table View */}
-      <div className="hidden md:block overflow-hidden bg-white dark:bg-zinc-900 rounded-xl border border-borders dark:border-zinc-800 shadow-sm">
+      <div className="hidden md:block overflow-hidden bg-white dark:bg-ink-900 rounded-xl border border-borders dark:border-ink-800 shadow-sm">
         <table className="w-full border-collapse text-left">
           <thead>
-            <tr className="bg-zinc-50 dark:bg-zinc-950/80 border-b border-borders dark:border-zinc-800">
+            <tr className="bg-shell dark:bg-ink-950/80 border-b border-borders dark:border-ink-800">
               <th className="px-6 py-4 text-xs font-semibold text-descText dark:text-zinc-300 uppercase tracking-wider">
                 Referral Name
               </th>
@@ -29,16 +29,16 @@ export const ReferralTable: React.FC<ReferralTableProps> = ({ referrals }) => {
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-borders dark:divide-zinc-800">
+          <tbody className="divide-y divide-borders dark:divide-ink-800">
             {referrals.map((referral) => (
               <tr
                 key={referral.id}
-                className="bg-white dark:bg-zinc-900 hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition-colors duration-150"
+                className="bg-white dark:bg-ink-900 hover:bg-shell/50 dark:hover:bg-ink-800/40 transition-colors duration-150"
               >
-                <td className="px-6 py-4.5 whitespace-nowrap text-sm font-semibold text-[#1F2937] dark:text-zinc-100">
+                <td className="px-6 py-4.5 whitespace-nowrap text-sm font-semibold text-mainText dark:text-zinc-100">
                   {referral.referralName}
                 </td>
-                <td className="px-6 py-4.5 whitespace-nowrap text-sm text-[#4B5563] dark:text-zinc-400 font-normal">
+                <td className="px-6 py-4.5 whitespace-nowrap text-sm text-descText dark:text-zinc-400 font-normal">
                   {referral.project}
                 </td>
                 <td className="px-6 py-4.5 whitespace-nowrap">
@@ -58,10 +58,10 @@ export const ReferralTable: React.FC<ReferralTableProps> = ({ referrals }) => {
         {referrals.map((referral) => (
           <div
             key={referral.id}
-            className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-borders dark:border-zinc-800 shadow-sm hover:border-[#0066CC]/20 dark:hover:border-[#0066CC]/30 transition-all flex flex-col gap-3"
+            className="bg-white dark:bg-ink-900 p-5 rounded-xl border border-borders dark:border-ink-800 shadow-sm hover:shadow-md hover:border-shell-deep dark:hover:border-ink-600 transition-all flex flex-col gap-3"
           >
             <div className="flex justify-between items-start">
-              <h4 className="text-base font-semibold text-[#1F2937] dark:text-zinc-100 leading-tight">
+              <h4 className="text-base font-semibold text-mainText dark:text-zinc-100 leading-tight">
                 {referral.referralName}
               </h4>
             </div>
@@ -73,7 +73,7 @@ export const ReferralTable: React.FC<ReferralTableProps> = ({ referrals }) => {
               </span>
             </div>
 
-            <div className="h-[1px] bg-borders dark:bg-zinc-800 w-full my-1"></div>
+            <div className="h-[1px] bg-borders dark:bg-ink-800 w-full my-1"></div>
 
             <div className="grid grid-cols-2 gap-2 text-xs">
               <div className="flex flex-col gap-1">

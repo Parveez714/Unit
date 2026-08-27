@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,29 @@
 
 @layer base {
   body {
-    @apply bg-background text-mainText font-sans antialiased transition-colors duration-200 dark:bg-[#0A0A0A] dark:text-zinc-100;
+    @apply bg-background text-mainText font-sans antialiased transition-colors duration-200 dark:bg-ink-950 dark:text-zinc-100;
     margin: 0;
+  }
+
+  ::selection {
+    @apply bg-ink-900 text-white;
+  }
+
+  /* Slim, monochrome scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-shell-deep dark:bg-ink-800;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-metadata dark:bg-ink-700;
   }
 }

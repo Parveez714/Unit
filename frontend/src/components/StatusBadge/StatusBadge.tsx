@@ -4,65 +4,102 @@ interface StatusBadgeProps {
   status: string;
 }
 
+const STATUS_STYLES: Record<string, { bg: string; text: string; dot: string }> = {
+  // Lead Statuses
+  open: {
+    bg: 'bg-blue-50 dark:bg-blue-950/40',
+    text: 'text-blue-700 dark:text-blue-400',
+    dot: 'bg-blue-500',
+  },
+  contacted: {
+    bg: 'bg-indigo-50 dark:bg-indigo-950/40',
+    text: 'text-indigo-700 dark:text-indigo-400',
+    dot: 'bg-indigo-500',
+  },
+  qualified: {
+    bg: 'bg-emerald-50 dark:bg-emerald-950/40',
+    text: 'text-emerald-700 dark:text-emerald-400',
+    dot: 'bg-emerald-500',
+  },
+  unqualified: {
+    bg: 'bg-rose-50 dark:bg-rose-950/40',
+    text: 'text-rose-700 dark:text-rose-400',
+    dot: 'bg-rose-500',
+  },
+  converted: {
+    bg: 'bg-purple-50 dark:bg-purple-950/40',
+    text: 'text-purple-700 dark:text-purple-400',
+    dot: 'bg-purple-500',
+  },
+  dnd: {
+    bg: 'bg-orange-50 dark:bg-orange-950/40',
+    text: 'text-orange-700 dark:text-orange-400',
+    dot: 'bg-orange-500',
+  },
+
+  // Opportunity Stages
+  'site visit / walk in': {
+    bg: 'bg-sky-50 dark:bg-sky-950/40',
+    text: 'text-sky-700 dark:text-sky-400',
+    dot: 'bg-sky-500',
+  },
+  'site visit/walk in': {
+    bg: 'bg-sky-50 dark:bg-sky-950/40',
+    text: 'text-sky-700 dark:text-sky-400',
+    dot: 'bg-sky-500',
+  },
+  blocked: {
+    bg: 'bg-red-50 dark:bg-red-950/40',
+    text: 'text-red-700 dark:text-red-400',
+    dot: 'bg-red-500',
+  },
+  'pre-sales': {
+    bg: 'bg-amber-50 dark:bg-amber-950/40',
+    text: 'text-amber-700 dark:text-amber-400',
+    dot: 'bg-amber-500',
+  },
+  presales: {
+    bg: 'bg-amber-50 dark:bg-amber-950/40',
+    text: 'text-amber-700 dark:text-amber-400',
+    dot: 'bg-amber-500',
+  },
+  booking: {
+    bg: 'bg-teal-50 dark:bg-teal-950/40',
+    text: 'text-teal-700 dark:text-teal-400',
+    dot: 'bg-teal-500',
+  },
+  'closed lost': {
+    bg: 'bg-slate-100 dark:bg-slate-800/60',
+    text: 'text-slate-600 dark:text-slate-400',
+    dot: 'bg-slate-400',
+  },
+  'booking cancellation': {
+    bg: 'bg-red-50 dark:bg-red-950/40',
+    text: 'text-red-700 dark:text-red-400',
+    dot: 'bg-red-500',
+  },
+  'closed won': {
+    bg: 'bg-green-50 dark:bg-green-950/40',
+    text: 'text-green-700 dark:text-green-400',
+    dot: 'bg-green-500',
+  },
+};
+
+const DEFAULT_STYLE = {
+  bg: 'bg-shell dark:bg-zinc-800',
+  text: 'text-mainText dark:text-zinc-200',
+  dot: 'bg-metadata',
+};
+
 export const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
   const normalizedStatus = status.trim().toLowerCase();
-
-  let styles = {
-    bg: 'bg-zinc-100 dark:bg-zinc-800',
-    text: 'text-zinc-800 dark:text-zinc-200'
-  };
-
-  switch (normalizedStatus) {
-    // Lead Statuses
-    case 'open':
-      styles = { bg: 'bg-[#EFF6FF] dark:bg-blue-950/40', text: 'text-[#1E40AF] dark:text-blue-400' };
-      break;
-    case 'contacted':
-      styles = { bg: 'bg-[#EEF2FF] dark:bg-indigo-950/40', text: 'text-[#3730A3] dark:text-indigo-400' };
-      break;
-    case 'qualified':
-      styles = { bg: 'bg-[#ECFDF5] dark:bg-emerald-950/40', text: 'text-[#065F46] dark:text-emerald-400' };
-      break;
-    case 'unqualified':
-      styles = { bg: 'bg-[#FEF2F2] dark:bg-rose-950/40', text: 'text-[#991B1B] dark:text-rose-400' };
-      break;
-    case 'converted':
-      styles = { bg: 'bg-[#F5F3FF] dark:bg-purple-950/40', text: 'text-[#5B21B6] dark:text-purple-400' };
-      break;
-    case 'dnd':
-      styles = { bg: 'bg-[#FFF7ED] dark:bg-orange-950/40', text: 'text-[#9A3412] dark:text-orange-400' };
-      break;
-
-    // Opportunity Stages
-    case 'site visit / walk in':
-    case 'site visit/walk in':
-      styles = { bg: 'bg-[#F0F9FF] dark:bg-sky-950/40', text: 'text-[#075985] dark:text-sky-400' };
-      break;
-    case 'blocked':
-      styles = { bg: 'bg-[#FFF1F2] dark:bg-rose-950/45', text: 'text-[#9F1239] dark:text-rose-400' };
-      break;
-    case 'pre-sales':
-    case 'presales':
-      styles = { bg: 'bg-[#FFFBEB] dark:bg-amber-950/40', text: 'text-[#92400E] dark:text-amber-400' };
-      break;
-    case 'booking':
-      styles = { bg: 'bg-[#F0FDFA] dark:bg-teal-950/40', text: 'text-[#0F766E] dark:text-teal-400' };
-      break;
-    case 'closed lost':
-      styles = { bg: 'bg-[#F8FAFC] dark:bg-slate-800/60', text: 'text-[#475569] dark:text-slate-400' };
-      break;
-    case 'booking cancellation':
-      styles = { bg: 'bg-[#FFF5F5] dark:bg-red-950/40', text: 'text-[#C53030] dark:text-red-400' };
-      break;
-    case 'closed won':
-      styles = { bg: 'bg-[#F0FDF4] dark:bg-green-950/40', text: 'text-[#166534] dark:text-green-400' };
-      break;
-    default:
-      break;
-  }
+  const styles = STATUS_STYLES[normalizedStatus] ?? DEFAULT_STYLE;
 
   return (
-    <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide ${styles.bg} ${styles.text}`}>
+    <span
+      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide whitespace-nowrap ${styles.bg} ${styles.text}`}
+    >
+      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${styles.dot}`} />
       {status}
     </span>
   );
